@@ -1,7 +1,15 @@
 import React from 'react';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
+import mainReducer from './reducers/mainReducer';
 
 const App = () => (
-    <h1>loading...</h1>
+    <Provider store={createStore(mainReducer, applyMiddleware(thunk))} >
+        <div>
+        </div>
+    </Provider>
 );
 
 export default App;
