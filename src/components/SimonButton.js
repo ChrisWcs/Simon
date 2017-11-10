@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const styleFunc = (highColor, unColor) => ({
+const styleFunc = (color, radius) => ({
     width: "100px",
     height: "100px",
-    background: color
+    background: color,
+    cursor: "pointer",
+    borderRadius: radius,
 });
 
-const SimonButton = ({highColor, unColor, func}) => (
-    <button style={styleFunc(highColor, unColor )} onClick={func}/>
+const SimonButton = ({color, radius, clickFunc}) => (
+    <button style={styleFunc(color, radius)} onClick={clickFunc}/>
 );
 
 SimonButton.propTypes = {
     color: PropTypes.string,
-    func: PropTypes.func,
+    clickFunc: PropTypes.func,
+    radius: PropTypes.string,
 };
 
 export default SimonButton;

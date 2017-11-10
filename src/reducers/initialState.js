@@ -3,10 +3,10 @@ const initialState = () => ({
     pattern: [],
     inProgress: false,
     highlighted: {
-        r: false,
-        g: false,
-        b: false,
-        y: false,
+        c1: false,
+        c2: false,
+        c3: false,
+        c4: false,
     },
     highCount: 0,
 });

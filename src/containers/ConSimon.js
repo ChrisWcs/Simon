@@ -3,11 +3,12 @@ import {} from '../actions/actions';
 
 import SimonButton from '../components/SimonButton';
 
-const mapStateToProps = (state) => ({
-    color: state.high ? "red" : "green"
+const mapStateToProps = (state, ownProps) => ({
+    color: state.highlighted.c1 ? ownProps.high : ownProps.norm,
+    radius: ownProps.radius,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
     func: () => { dispatch(); }
 });
 
