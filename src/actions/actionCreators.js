@@ -27,8 +27,18 @@ export const createResetCount = () => ({
     type: RESET_COUNT
 });
 
-export const ayncCompShoe = () => (dispatch, getState) => {
-    const {count} = getState();
+export const ayncCompShow = () => (dispatch, getState) => {
+    const { highCount, pattern } = getState();
 
-    if()
+    if( highCount === pattern.length) {
+
+        setTimeout( () => {
+            
+        }, 1000);
+
+        dispatch(createResetCount());
+    } else {
+        dispatch();
+        dispatch(createIncrementCount());
+    }
 };

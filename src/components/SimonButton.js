@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const styleFunc = (color) => ({
-    width: "50px",
-    height: "50px",
+const styleFunc = (highColor, unColor) => ({
+    width: "100px",
+    height: "100px",
     background: color
 });
 
-const SimonButton = ({color, func}) => (
-    <button style={styleFunc(color)} onClick={func}/>
+const SimonButton = ({highColor, unColor, func}) => (
+    <button style={styleFunc(highColor, unColor )} onClick={func}/>
 );
 
 SimonButton.propTypes = {
