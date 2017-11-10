@@ -9,9 +9,9 @@ export const createChangeStatus = () => ({
     type: CHANGE_STATUS
 });
 
-export const createAddToChoice = (color) => ({
+export const createAddToChoice = (cNum) => ({
     type: ADD_TO_CHOICE,
-    color,
+    cNum,
 });
 
 export const createAddToPattern = (color) => ({
