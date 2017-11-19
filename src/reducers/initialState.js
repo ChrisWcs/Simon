@@ -1,5 +1,4 @@
 const initialState = () => ({
-    choice: [],
     pattern: [],
     inProgress: false,
     highlighted: {
@@ -8,7 +7,7 @@ const initialState = () => ({
         c3: false,
         c4: false,
     },
-    highCount: 0,
+    index: 0,
 });
 
 export default initialState;

@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { createAddToPattern } from '../actions/actionCreators';
+import {} from '../actions/actionCreators';
 
 import SimonButton from '../components/SimonButton';
 

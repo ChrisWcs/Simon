@@ -42,3 +42,13 @@ export const ayncCompShow = () => (dispatch, getState) => {
         dispatch(createIncrementCount());
     }
 };
+
+export const createAsyncClick = (cNum) => (dispatch, getState) => {
+    const {index, pattern} = getState();
+
+    if( cNum === pattern[index] ){
+        // continue stuff
+    } else if (){
+        // dispatch end game
+    }
+};
