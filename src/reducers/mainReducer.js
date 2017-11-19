@@ -1,4 +1,6 @@
-const mainReducer = (state, action) => {
+import initalState from './initialState';
+
+const mainReducer = (state = initalState(), action) => {
     switch(action.type){
         
         default:

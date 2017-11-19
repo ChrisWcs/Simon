@@ -16,7 +16,7 @@ const style = {
         justifyContent: "center",
         alignItems: "center"
     },
-}
+};
 
 const Game = () => (
     <div style={style.column}>

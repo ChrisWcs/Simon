@@ -5,9 +5,12 @@ import thunk from 'redux-thunk';
 
 import mainReducer from './reducers/mainReducer';
 
+import Game from './components/Game';
+
 const App = () => (
     <Provider store={createStore(mainReducer, applyMiddleware(thunk))} >
         <div>
+            <Game/>
         </div>
     </Provider>
 );
