@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ConSimon from '../containers/ConSimon';
+import ConStart from '../containers/ConStart';
 
 const style = {
     row: {
@@ -29,7 +30,7 @@ const Game = () => (
             <ConSimon high={"#1B5E20"} norm={"#69F0AE"} cNum={2} radius={"0px 0px 100px 0px"}/>
         </div>
         <div style={style.row}>
-            
+            <ConStart/>
         </div>
     </div>
 );
