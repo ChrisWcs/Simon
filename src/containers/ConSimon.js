@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {} from '../actions/actionCreators';
+import { createAsyncClick } from '../actions/actionCreators';
 
 import SimonButton from '../components/SimonButton';
 
@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    clickFunc: () => { dispatch(createAddToPattern(ownProps.cNum)); }
+    clickFunc: () => { dispatch(createAsyncClick(ownProps.cNum)); }
 });
 
 const ConSimon = connect( mapStateToProps, mapDispatchToProps )(SimonButton);
