@@ -1,6 +1,7 @@
 const initialState = () => ({
     pattern: [],
     inProgress: false,
+    isPlaying: false,
     highlighted: {
         c1: false,
         c2: false,

@@ -1,12 +1,59 @@
 import initalState from './initialState';
+import { INCREMENT_INDEX, INCREMENT_PATTERN, END_GAME, START_GAME, HIGHLIGHT, END_SHOW} from '../actions/actions';
 
 const mainReducer = (state = initalState(), action) => {
     switch(action.type){
-        // adding to pattern
-        case "":
+        case HIGHLIGHT:
+            return {
+                ...state,
+                highlighted: {
+                    ...{
+                        c1: false,
+                        c2: false,
+                        c3: false,
+                        c4: false,
+                    },
+                    [action.id]: true,
+                },
+            };
 
-        // start game
-        case "":
+        case END_SHOW:
+            return {
+                ...state,
+                highlighted: {
+                    c1: false,
+                    c2: false,
+                    c3: false,
+                    c4: false,
+                },
+                inProgress: false,
+            };
+
+        case START_GAME:
+            return {
+                ...state,
+                isPlaying: !(state.isPlaying)
+            };
+
+        case END_GAME:
+            return {
+                ...state,
+                isPlaying: !(state.isPlaying)
+            };
+
+        case INCREMENT_PATTERN:
+            return {
+                ...state,
+                index: 0,
+                patIndex: state.patIndex + 1,
+                inProgress: true,
+            };
+
+        case INCREMENT_INDEX:
+            return {
+                ...state,
+                index: state.index + 1
+            };
         
         default:
             return state;
