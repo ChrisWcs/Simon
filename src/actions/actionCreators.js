@@ -1,54 +1,48 @@
-import { HIGHLIGHT, CHANGE_STATUS, ADD_TO_CHOICE, ADD_TO_PATTERN, INCREMENT_COUNT, RESET_COUNT } from './actions';
+import { INCREMENT_INDEX, END_GAME, START_GAME, INCREMENT_PATTERN, HIGHLIGHT } from './actions';
 
-export const createHighlight = (color) => ({
-    type: HIGHLIGHT,
-    color,
+export const createIncrementIndex = () => ({
+    type: INCREMENT_INDEX,
 });
 
-export const createChangeStatus = () => ({
-    type: CHANGE_STATUS
+export const createIncrementPattern = () => ({
+    type: INCREMENT_PATTERN,
 });
 
-export const createAddToChoice = (cNum) => ({
-    type: ADD_TO_CHOICE,
-    cNum,
+export const createEndGame = () => ({
+    type: END_GAME,
 });
 
-export const createAddToPattern = (color) => ({
-    type: ADD_TO_PATTERN,
-    color,
+export const createStart = () => ({
+    type: START_GAME
 });
 
-export const createIncrementCount = () => ({
-    type: INCREMENT_COUNT
+export const createHighlight = () => ({
+    type: HIGHLIGHT
 });
 
-export const createResetCount = () => ({
-    type: RESET_COUNT
-});
+export const asyncCompShow = () => (dispatch, getState) => {
+    const id = setInterval( () => {
+        dispatch(createHighlight());
 
-export const ayncCompShow = () => (dispatch, getState) => {
-    const { highCount, pattern } = getState();
-
-    if( highCount === pattern.length) {
-
-        setTimeout( () => {
-            
-        }, 1000);
-
-        dispatch(createResetCount());
-    } else {
-        dispatch();
-        dispatch(createIncrementCount());
-    }
+        if(getState().patIndex === getState().pattern.length){
+            clearInterval(id);
+        }
+    }, 1000);
 };
 
 export const createAsyncClick = (cNum) => (dispatch, getState) => {
     const {index, pattern} = getState();
 
-    if( cNum === pattern[index] ){
-        // continue stuff
-    } else if (){
-        // dispatch end game
+    if( cNum === pattern[index] && index === pattern.length ){
+        dispatch(createIncrementIndex());
+
+    } else if ( index === pattern.length - 1 && cNum === pattern[index] ){
+        dispatch(createIncrementPattern());
+        setTimeout( () => {
+            dispatch(asyncCompShow());
+        }, 2000);
+
+    } else {
+        dispatch(createEndGame());
     }
 };

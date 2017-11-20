@@ -8,6 +8,7 @@ const initialState = () => ({
         c4: false,
     },
     index: 0,
+    patIndex: 0,
 });
 
 export default initialState;
