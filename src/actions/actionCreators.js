@@ -29,7 +29,7 @@ export const asyncCompShow = () => (dispatch, getState) => {
     const arr = ["c1", "c2", "c3", "c4"];
 
     const id = setInterval( () => {
-        dispatch( createHighlight(arr[getState().patIndex]) ); // -------------        
+        dispatch( createHighlight(arr[getState().pattern[getState().patIndex]]) ); // -------------        
         
         if(getState().patIndex === getState().pattern.length){    
             clearInterval(id);
@@ -38,22 +38,25 @@ export const asyncCompShow = () => (dispatch, getState) => {
                 dispatch(createEndShow());
             }, 1000);
         }
-    }, 2000);
+    }, 1000);
 };
 
 export const createAsyncClick = (cNum) => (dispatch, getState) => {
-    const {index, pattern} = getState();
+    const {index, pattern, inProgress, isPlaying} = getState();
+    console.log(getState());
 
-    if( cNum === pattern[index] && index !== pattern.length - 1){
-        dispatch(createIncrementIndex()); // -------------
-
-    } else if ( index === pattern.length - 1 && cNum === pattern[index] ){
-        dispatch(createIncrementPattern()); // -------------        
-        setTimeout( () => {
-            dispatch(asyncCompShow());
-        }, 1000);
-
-    } else {
-        dispatch(createEndGame()); // -------------        
+    if( isPlaying && !inProgress){
+        if( cNum === pattern[index] && index < pattern.length - 1){
+            dispatch(createIncrementIndex()); // -------------
+    
+        } else if ( index === pattern.length - 1 && cNum === pattern[index] ){
+            dispatch(createIncrementPattern()); // -------------        
+            setTimeout( () => {
+                dispatch(asyncCompShow());
+            }, 500);
+    
+        } else {
+            dispatch(createEndGame()); // -------------        
+        }
     }
 };
