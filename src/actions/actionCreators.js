@@ -16,8 +16,9 @@ export const createStart = () => ({
     type: START_GAME
 });
 
-export const createHighlight = () => ({
-    type: HIGHLIGHT
+export const createHighlight = (id) => ({
+    type: HIGHLIGHT,
+    id, 
 });
 
 export const createEndShow = () => ({
@@ -25,21 +26,20 @@ export const createEndShow = () => ({
 });
 
 export const asyncCompShow = () => (dispatch, getState) => {
-    const id = setInterval( () => {
-        dispatch(createHighlight()); // -------------        
+    const arr = ["c1", "c2", "c3", "c4"];
 
-        if(getState().patIndex === getState().pattern.length){
+    const id = setInterval( () => {
+        dispatch( createHighlight(arr[getState().patIndex]) ); // -------------        
+        console.log("From comp");
+
+        if(getState().patIndex === getState().pattern.length){    
             clearInterval(id);
             
             setTimeout( () => {
-                dispatch(END_SHOW)
+                dispatch(createEndShow());
             }, 1000);
         }
     }, 1000);
-
-    return {
-        type: ""
-    };
 };
 
 export const createAsyncClick = (cNum) => (dispatch, getState) => {
@@ -51,14 +51,11 @@ export const createAsyncClick = (cNum) => (dispatch, getState) => {
     } else if ( index === pattern.length - 1 && cNum === pattern[index] ){
         dispatch(createIncrementPattern()); // -------------        
         setTimeout( () => {
+            console.log("from async click");
             dispatch(asyncCompShow());
         }, 2000);
 
     } else {
         dispatch(createEndGame()); // -------------        
     }
-
-    return {
-        type: ""
-    };
 };
