@@ -30,9 +30,7 @@ export const asyncCompShow = () => (dispatch, getState) => {
 
     const id = setInterval( () => {
         dispatch( createHighlight(arr[getState().patIndex]) ); // -------------        
-        console.log(arr[getState().patIndex])
-        console.log("From comp");
-
+        
         if(getState().patIndex === getState().pattern.length){    
             clearInterval(id);
             
@@ -46,13 +44,12 @@ export const asyncCompShow = () => (dispatch, getState) => {
 export const createAsyncClick = (cNum) => (dispatch, getState) => {
     const {index, pattern} = getState();
 
-    if( cNum === pattern[index] && index === pattern.length ){
+    if( cNum === pattern[index] && index !== pattern.length - 1){
         dispatch(createIncrementIndex()); // -------------
 
     } else if ( index === pattern.length - 1 && cNum === pattern[index] ){
         dispatch(createIncrementPattern()); // -------------        
         setTimeout( () => {
-            console.log("from async click");
             dispatch(asyncCompShow());
         }, 1000);
 
