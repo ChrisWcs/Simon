@@ -30,6 +30,7 @@ export const asyncCompShow = () => (dispatch, getState) => {
 
     const id = setInterval( () => {
         dispatch( createHighlight(arr[getState().patIndex]) ); // -------------        
+        console.log(arr[getState().patIndex])
         console.log("From comp");
 
         if(getState().patIndex === getState().pattern.length){    
@@ -39,7 +40,7 @@ export const asyncCompShow = () => (dispatch, getState) => {
                 dispatch(createEndShow());
             }, 1000);
         }
-    }, 1000);
+    }, 2000);
 };
 
 export const createAsyncClick = (cNum) => (dispatch, getState) => {
@@ -53,7 +54,7 @@ export const createAsyncClick = (cNum) => (dispatch, getState) => {
         setTimeout( () => {
             console.log("from async click");
             dispatch(asyncCompShow());
-        }, 2000);
+        }, 1000);
 
     } else {
         dispatch(createEndGame()); // -------------        

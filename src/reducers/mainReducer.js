@@ -7,12 +7,10 @@ const mainReducer = (state = initalState(), action) => {
             return {
                 ...state,
                 highlighted: {
-                    ...{
-                        c1: false,
-                        c2: false,
-                        c3: false,
-                        c4: false,
-                    },
+                    c1: false,
+                    c2: false,
+                    c3: false,
+                    c4: false,
                     [action.id]: true,
                 },
                 patIndex: state.patIndex + 1,
@@ -47,7 +45,7 @@ const mainReducer = (state = initalState(), action) => {
             return {
                 ...state,
                 index: 0,
-                patIndex: state.patIndex + 1,
+                patIndex: 0,
                 pattern: [ ...state.pattern, Math.floor( Math.random() * 4)],
                 inProgress: true,
             };
