@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const styleFunc = (color, radius) => ({
-    width: "100px",
-    height: "100px",
+    width: "200px",
+    height: "200px",
     background: color,
     cursor: "pointer",
     borderRadius: radius,
