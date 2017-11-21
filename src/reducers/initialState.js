@@ -1,5 +1,5 @@
 const initialState = () => ({
-    pattern: [],
+    pattern: [ 0,],
     inProgress: false,
     isPlaying: false,
     highlighted: {

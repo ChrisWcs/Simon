@@ -36,6 +36,10 @@ export const asyncCompShow = () => (dispatch, getState) => {
             }, 1000);
         }
     }, 1000);
+
+    return {
+        type: ""
+    };
 };
 
 export const createAsyncClick = (cNum) => (dispatch, getState) => {
@@ -53,4 +57,8 @@ export const createAsyncClick = (cNum) => (dispatch, getState) => {
     } else {
         dispatch(createEndGame()); // -------------        
     }
+
+    return {
+        type: ""
+    };
 };

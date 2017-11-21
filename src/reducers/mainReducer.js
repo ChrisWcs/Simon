@@ -48,7 +48,7 @@ const mainReducer = (state = initalState(), action) => {
                 ...state,
                 index: 0,
                 patIndex: state.patIndex + 1,
-                pattern: [ ...state.pattern, 0],
+                pattern: [ ...state.pattern, Math.floor( Math.random() * 4)],
                 inProgress: true,
             };
 
