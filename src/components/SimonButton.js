@@ -7,6 +7,7 @@ const styleFunc = (color, radius) => ({
     background: color,
     cursor: "pointer",
     borderRadius: radius,
+    border: "none"
 });
 
 const SimonButton = ({color, radius, clickFunc}) => (

@@ -30,10 +30,11 @@ export const asyncCompShow = () => (dispatch, getState) => {
 
         if(getState().patIndex === getState().pattern.length){
             clearInterval(id);
+            
+            setTimeout( () => {
+                dispatch(END_SHOW)
+            }, 1000);
         }
-    }, 1000);
-    setTimeout( () => {
-        dispatch(END_SHOW)
     }, 1000);
 };
 

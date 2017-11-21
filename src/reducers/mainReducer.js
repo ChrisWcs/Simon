@@ -15,6 +15,7 @@ const mainReducer = (state = initalState(), action) => {
                     },
                     [action.id]: true,
                 },
+                patIndex: state.patIndex + 1,
             };
 
         case END_SHOW:
@@ -27,6 +28,7 @@ const mainReducer = (state = initalState(), action) => {
                     c4: false,
                 },
                 inProgress: false,
+                patIndex: 0,
             };
 
         case START_GAME:
@@ -46,6 +48,7 @@ const mainReducer = (state = initalState(), action) => {
                 ...state,
                 index: 0,
                 patIndex: state.patIndex + 1,
+                pattern: [ ...state.pattern, 0],
                 inProgress: true,
             };
 
